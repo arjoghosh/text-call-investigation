@@ -43,3 +43,52 @@ Print the answer as a part of a message::
 to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
+
+PREFIX_FIXED_LINE = '('
+SURFIX_FIXED_LINE = ')'
+PREFIX_MOBILE = ['7', '8', '9']
+BANGALORE = '080'
+
+# Predefined methods
+def is_in_bangalore(phone_number):
+  if phone_number[0] == PREFIX_FIXED_LINE:
+    code_area = phone_number[1:4]
+  else:
+    code_area = phone_number
+
+  if code_area == BANGALORE:
+    return True
+  return False
+
+def process_answering_number(phone_number):
+  if phone_number[0] == PREFIX_FIXED_LINE:
+    return phone_number.split(SURFIX_FIXED_LINE, 1)[0][1:]
+  else:
+    return phone_number[0:4]
+  return 0
+
+
+# Processing script
+list_of_codes = set()
+total_calls_from_bangalore = 0
+total_calls_from_bangalore_to_bangalore = 0
+
+for call in calls:
+  if is_in_bangalore(call[0]):
+    total_calls_from_bangalore += 1
+    result = process_answering_number(call[1])
+    list_of_codes.add(result)
+
+    if is_in_bangalore(result):
+      total_calls_from_bangalore_to_bangalore += 1
+
+# Part A Result
+list_of_codes = sorted(list_of_codes, reverse=False)
+print("The numbers called by people in Bangalore have codes:")
+for code in list_of_codes:
+  print(code)
+
+# Part B Result
+ratio = float(total_calls_from_bangalore_to_bangalore) / float(total_calls_from_bangalore)
+percentage = "{0:.2%}".format(ratio)
+print("{} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(percentage))

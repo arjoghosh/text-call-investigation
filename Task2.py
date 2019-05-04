@@ -20,6 +20,7 @@ Print a message:
 September 2016.".
 """
 
+# We use a dictionary, with the key is the phone number and the value is the total call duration on that number
 CALLING_TIME = {}
 
 def process_calling_time(phone_number, duration):
