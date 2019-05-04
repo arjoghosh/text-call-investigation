@@ -1,0 +1,26 @@
+Below are the analysis of time complexity from the 4 tasks. Please note that this analysis considers the complexity of the implementation only.
+
+Task 0:
+The runtime complexity for this task is 0(1), since we only retrieve the first and the last record from texts and calls dataset.
+
+Task 1:
+There are 2 operations that were performed to complete the task:
+- For each record in the texts and calls dataset, retrieve the phone numbers and add them into the set.
+- Calculate the total number of elements in the set.
+Let M = total number of records in texts and calls dataset, then the first operation will have runtime complexity of O(M), while the second operation will have runtime complexity of O(1).
+Therefore, the total runtime complexity will be O(M).
+
+Task 2:
+For this task, we will iterate the list of calls, then add the phone number and its call duration to a dictionary for storage.
+Let N = total number of calls, then the iteration will have time complexity of O(N). The adding operation of the dictionary will have time complexity of O(1).
+There will be also a sorting operation, in order to get the number with longest call duration. This operation will have time complexity of O(NlogN).
+Therefore, the total time complexity is O(NlogN).
+
+Task 3:
+For this task, we will also iterate the calls list one time. Thus, the time complexity of the iteration is O(N), in which N = total number of calls. Then, the sorting operation will have time complexity of O(NlogN).
+Therefore, the total time complexity is O(NlogN).
+
+Task 4:
+For this tasks, we will need to iterate both the texts and calls dataset, in order to store the callers number and non-telemarketer to 2 different set, then perform the substraction operation to retrieve the telemarketer list.
+Let M = total number of records in texts and calls dataset, then the iteration will have time complexity of O(M). And the sorting operation will take O(MlogM) time complexity.
+Therefore, the total time complexity for this task is O(MlogM).

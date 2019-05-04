@@ -37,6 +37,7 @@ for text in texts:
     not_telemarketer.add(text[1])
 
 telemarketer = callers - not_telemarketer
+telemarketer = sorted(telemarketer)
 print("These numbers could be telemarketers:")
 for t in telemarketer:
     print(t)

@@ -24,6 +24,9 @@ September 2016.".
 CALLING_TIME = {}
 
 def process_calling_time(phone_number, duration):
+    """
+    Calculate the duration time to the phone number in the dictionary
+    """
     if CALLING_TIME.get(phone_number) is None:
         CALLING_TIME[phone_number] = duration
     else:
@@ -36,6 +39,7 @@ for call in calls:
     process_calling_time(from_phone_number, duration)
     process_calling_time(to_phone_number, duration)
 
+# Sort the dictionary by the total call duration
 sorted_call_time = sorted(CALLING_TIME.items(), key= lambda d: d[1], reverse=True)
 result_number = sorted_call_time[0][0]
 result_duration = sorted_call_time[0][1]

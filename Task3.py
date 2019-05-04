@@ -51,6 +51,9 @@ BANGALORE = '080'
 
 # Predefined methods
 def is_in_bangalore(phone_number):
+  """
+  Check whether the given phone number is in Bangalore area.
+  """
   if phone_number[0] == PREFIX_FIXED_LINE:
     code_area = phone_number[1:4]
   else:
